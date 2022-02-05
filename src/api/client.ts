@@ -1,8 +1,8 @@
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import axios from 'axios';
 
-const BASE_API_URL = process.env.REACT_APP_API_URL;
-const access_token = localStorage.getItem('access_token');
+const BASE_API_URL = 'https://9uj0ihoex6.execute-api.eu-west-1.amazonaws.com/dev/auth';
+const access_token = sessionStorage.getItem('access_token');
 
 const GET_HEADER = () => {
     return { 'Content-Type': 'application/json' };
@@ -18,7 +18,7 @@ export const GET_ACCESS_TOKEN = async (code: string) => {
           data: code
         });
 
-        localStorage.setItem('access_token', response.data.data.access_token);
+        sessionStorage.setItem('access_token', response.data.data.access_token);
 
         return response.data.message;
     } catch (error: any) {

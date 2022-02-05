@@ -10,13 +10,13 @@ export const Pagination = ({pageDetails}: any) => {
                     src='../assets/back-active.svg' 
                     alt='prev'
                     onClick={() => pageDetails.paginate(pageDetails.currentPage - 1)} 
-                    loading="lazy" 
+                    loading='lazy' 
                 /> :
                 <img 
                     className={classes.pgIconInactive} 
                     src='../assets/back-inactive.svg' 
                     alt='prev'
-                    loading="lazy" 
+                    loading='lazy' 
                 />
             }
             
@@ -81,13 +81,13 @@ export const Pagination = ({pageDetails}: any) => {
                     src='../assets/next-active.svg' 
                     onClick={() => pageDetails.paginate(pageDetails.currentPage + 1)} 
                     alt='next' 
-                    loading="lazy" 
+                    loading='lazy' 
                 /> : 
                 <img 
                     className={classes.pgIconInactive} 
                     src='../assets/next-inactive.svg' 
                     alt='next' 
-                    loading="lazy" 
+                    loading='lazy' 
                 />
             }
         </div>

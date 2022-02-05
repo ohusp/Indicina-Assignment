@@ -1,8 +1,9 @@
+import * as React from 'react';
 import { useState } from 'react';
-import {AppBar, Avatar, Toolbar, Typography} from '@material-ui/core';
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import useStyles from '../styles';
-import { HeaderSearch } from './HeaderSearch';
+import { AppBar, Toolbar } from '@mui/material';
+import { HeaderProfile, HeaderSearch } from '.';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -13,16 +14,16 @@ export const Header = () => {
         navigate(`/results?q=${searchTerm1}`)
     }
 
+    const home = () => {
+        navigate(`/search`)
+    }
+
     return (
         <AppBar className={classes.appBar}>
             <Toolbar className={classes.toolBar}>
-            <img className={classes.logo} src='../assets/github-logo.svg' alt='logo' loading="lazy" />
-            <HeaderSearch value={searchTerm1} onChange={setAppBarSearchTerm} submit={submit}/>
-            <div className={classes.headerProfile}>
-                <Avatar alt="avatar" src="../assets/avatar.svg" />
-                <Typography  className={classes.headerUsername}>John Doe</Typography>
-                <img className={classes.vector} src='../assets/vector.svg' alt='vector' loading="lazy" />
-            </div>
+                <img className={classes.logo} onClick={home} src='../assets/github-logo.svg' alt='logo' loading='lazy' />
+                <HeaderSearch value={searchTerm1} onChange={setAppBarSearchTerm} submit={submit}/>
+                <HeaderProfile />
             </Toolbar>
         </AppBar>
     )

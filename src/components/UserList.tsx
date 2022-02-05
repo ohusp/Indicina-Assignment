@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useQuery} from "@apollo/client";
-import {Typography, CircularProgress} from "@material-ui/core";
+import {Typography, CircularProgress} from "@mui/material";
 import {useDebounce} from "use-debounce";
 import {SEARCH_FOR_USERS} from "../api/queries";
 import {User} from "./User";

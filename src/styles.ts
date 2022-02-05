@@ -139,9 +139,11 @@ const useStyles = makeStyles({
     },
     logo: {
         height: '50px',
-        width: 'auto'
+        width: 'auto',
+        cursor: 'pointer'
     },
     appBarSearchInput: {
+        margin: '0 15px !important',
         width: '380px',
         [`& fieldset`]: {
           borderRadius: '100px'
@@ -153,15 +155,22 @@ const useStyles = makeStyles({
     headerProfile: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'end'
     },
     vector: {
         height: '5px',
-        width: 'auto'
+        width: 'auto',
+        "@media (max-width: 580px)": {
+            margin: '0 5px',
+        }
     },
     headerUsername: {
         margin: '0px 10px !important',
-        color: '#000000'
+        color: '#000000',
+        "@media (max-width: 580px)": {
+            display: 'none',
+        }
     },
     paginationDiv: {
         float: 'right',
@@ -199,6 +208,10 @@ const useStyles = makeStyles({
     loader: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    logout: {
+        padding: '10px 105px 10px 35px !important',
+        color: '#FF1733 !important'
     }
 });
 

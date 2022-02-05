@@ -1,11 +1,11 @@
+import { useState } from "react";
 import {useQuery} from "@apollo/client";
-import {Typography, CircularProgress} from "@material-ui/core";
+import {Typography, CircularProgress} from "@mui/material";
 import {useDebounce} from "use-debounce";
 import {SEARCH_FOR_REPOS} from "../api/queries";
 import {Repository} from "./Repository";
-import useStyles from '../styles';
+import useStyles from "../styles";
 import { Pagination } from "./Pagination";
-import { useState } from "react";
 
 export const RepositoryList = (props: any) => {
   const classes = useStyles();

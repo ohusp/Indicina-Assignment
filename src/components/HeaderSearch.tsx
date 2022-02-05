@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField, InputAdornment} from "@material-ui/core";
+import {TextField, InputAdornment} from '@mui/material';
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from '../styles';
 

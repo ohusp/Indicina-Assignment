@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import {Header, Loader, RepositoryList, UserList} from "../components";
 import {useLocation, useNavigate} from "react-router-dom";
-import {Card, CardContent, Container, Grid, List, ListItem, ListItemText, Typography} from '@material-ui/core';
+import {Card, CardContent, Container, Grid, List, ListItem, ListItemText, Typography} from '@mui/material';
 import useStyles from '../styles';
 
 export const Results = () => {
@@ -21,7 +21,7 @@ export const Results = () => {
   }, []);
 
   checkIfLogin.current = () => {
-      if(localStorage.getItem('isAuth') !== "true") {
+      if(sessionStorage.getItem('isAuth') !== "true") {
           navigate('/')
       }
   }
@@ -48,7 +48,7 @@ export const Results = () => {
           }
           <Container maxWidth="md">
             <Grid container spacing={2}>
-              <Grid item xs={4} className={classes.categoryGrid}>
+              <Grid item xs={12} sm={12} md={4} className={classes.categoryGrid}>
                 <Card>
                   <CardContent>
                     <List className={classes.categoryList}>
@@ -70,7 +70,7 @@ export const Results = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12} sm={12} md={8}>
                 <div className={display}>
                   {
                     category === 'repositories' || category === '' ?

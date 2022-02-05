@@ -2,6 +2,10 @@
   "name": "indicina-assignment",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Mr Mendes",
+    "email": "mendes.paul28@gmail.com"
+  },
   "dependencies": {
     "@apollo/client": "^3.5.8",
     "@emotion/react": "^11.7.1",
