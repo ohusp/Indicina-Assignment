@@ -1,5 +1,5 @@
 import { screen, waitFor } from "@testing-library/react";
-import { render } from "../render";
+import { render } from "./render";
 import { UserList } from "../components";
 
 it("should display the user results", async () => {
