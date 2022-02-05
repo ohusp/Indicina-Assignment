@@ -1,10 +1,9 @@
 import {makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles({
-    login_btn: {
+    loginBtn: {
         background: '#5C5C5C',
         borderRadius: '5px',
-        marginTop: '25%',
         color: '#ffffff',
         width: '179px',
         height: '50px',
@@ -13,21 +12,26 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         textDecoration: 'none',
         border: 'none',
-        cursor: 'pointer'
+        cursor: 'pointer',
+
+        "&:hover": {
+            background: "#e0e0e0"
+        }
     },
-    login_div: {
-        textAlign: 'center'
+    loginDiv: {
+        justifyContent: 'center',
+        marginTop: '25% !important'
     },
     container: {
         backgroundColor: '#f5f5f591',
         paddingTop: '100px'
     },
-    category_list: {
+    categoryList: {
         width: '100%', 
         maxWidth: 360, 
         bgcolor: 'background.paper'
     },
-    category_item: {
+    categoryItem: {
         background: '#F7F7F8'
     },
     categoryGrid: {
@@ -52,12 +56,16 @@ const useStyles = makeStyles({
         color: '#ffffff !important',
         width: '179px',
         height: '40px',
-        textTransform: 'none',
+        textTransform: 'none !important' as 'none',
         fontWeight: 700,
         justifyContent: 'center',
         textDecoration: 'none',
         border: 'none',
-        cursor: 'pointer'
+        cursor: 'pointer',
+
+        "&:hover": {
+            background: "#e0e0e0 !important"
+        }
     },
     searchBtnDiv: {
         marginTop: '35px'

@@ -1,11 +1,11 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Header, Loader, RepositoryList, UserList} from "../components";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {Card, CardContent, Container, Grid, List, ListItem, ListItemText, Typography} from '@material-ui/core';
 import useStyles from '../styles';
 
 export const Results = () => {
-  
+  const navigate    = useNavigate();
   const search      = useLocation().search;
   const searchTerm  = new URLSearchParams(search).get('q');
   const [category, setCategory] = useState('')
@@ -14,8 +14,17 @@ export const Results = () => {
   const [loading, setLoading] = useState(true)
   const classes = useStyles();
   const [display, setDisplay] = useState(classes.displayNone)
+  const checkIfLogin = useRef(() => {})
 
-  
+  useEffect(() => {
+      checkIfLogin.current()
+  }, []);
+
+  checkIfLogin.current = () => {
+      if(localStorage.getItem('isAuth') !== "true") {
+          navigate('/')
+      }
+  }
 
   const setRepoCount = (repoCount: number) => {
     setTotalRepo(repoCount);
@@ -42,16 +51,16 @@ export const Results = () => {
               <Grid item xs={4} className={classes.categoryGrid}>
                 <Card>
                   <CardContent>
-                    <List className={classes.category_list}>
+                    <List className={classes.categoryList}>
                       <ListItem 
-                        className={`${classes.item} ${category === 'repositories' ? classes.category_item : ''}`}  
+                        className={`${classes.item} ${category === 'repositories' ? classes.categoryItem : ''}`}  
                         onClick={() => setCategory('repositories')}
                       >
                         <ListItemText primary="Repositories" />
                         <Typography className={classes.count}>{totalRepo}</Typography>
                       </ListItem>
                       <ListItem
-                        className={`${classes.item} ${category === 'users' ? classes.category_item : ''}`}  
+                        className={`${classes.item} ${category === 'users' ? classes.categoryItem : ''}`}  
                         onClick={() => setCategory('users')}
                       >
                         <ListItemText primary="Users" />

@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Login, Search, Results} from "./pages";
 
 const App = () => {
+
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>

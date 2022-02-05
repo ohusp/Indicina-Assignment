@@ -1,13 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import {useNavigate} from "react-router-dom";
 import {Button, Container} from "@material-ui/core";
 import {SearchBar} from "../components";
-import {useNavigate} from "react-router-dom";
 import useStyles from '../styles';
 
 export const Search = () => {
     const navigate = useNavigate();
     const classes = useStyles();
     const [searchTerm, setSearchTerm] = useState('');
+    const checkIfLogin = useRef(() => {})
+
+    useEffect(() => {
+        checkIfLogin.current()
+    }, []);
+
+    checkIfLogin.current = () => {
+        if(localStorage.getItem('isAuth') !== "true") {
+            navigate('/')
+        }
+    }
 
     const submit = () => {
         navigate(`/results?q=${searchTerm}`)
@@ -20,7 +31,6 @@ export const Search = () => {
             <div className={classes.searchBtnDiv}>
                 <Button variant="contained" className={classes.searchBtn} onClick={() => submit()}>Search Github</Button>
             </div>
-            
         </Container>
     );
 };
